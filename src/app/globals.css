@@ -1,0 +1,1141 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-system, system-ui, sans-serif;
+  --font-display: var(--font-instrument-serif), ui-serif, Georgia, serif;
+}
+
+@theme {
+  --color-ink-100: #f5f5f5;
+  --color-ink-200: #e5e5e5;
+  --color-ink-300: #d4d4d4;
+  --color-ink-400: #a3a3a3;
+  --color-ink-500: #737373;
+  --color-ink-600: #525252;
+  --color-ink-700: #404040;
+  --color-ink-800: #262626;
+  --color-ink-900: #171717;
+  --color-ink-950: #0a0a0a;
+
+  --color-canvas: #ffffff;
+  --color-bento-surface: #ffffff;
+  --color-surface-muted: #f7f7f8;
+
+  /* Marklab template (nav pill + inquiry button) */
+  --color-marklab-nav: #202342;
+  --color-marklab-nav-btn: #4e516a;
+  --color-marklab-hero-fallback: #050508;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-serif-display {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.hero-marklab {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--color-marklab-hero-fallback);
+}
+
+.hero-marklab__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Final CTA — Marklab `.footer-top-wrapper` + `.banner-title` */
+.marklab-final-cta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--color-marklab-hero-fallback);
+  background-image: url("/marklab/footer-bg.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 100%;
+  background-size: cover;
+  padding-top: 7.5rem;
+  padding-bottom: 7.5rem;
+}
+
+.marklab-final-cta__inner {
+  max-width: 44rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.marklab-final-cta__eyebrow {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgb(255 255 255 / 0.55);
+}
+
+.marklab-final-cta__title {
+  margin-top: 0.75rem;
+  font-family: var(--font-sans);
+  font-size: clamp(2.75rem, 9vw, 5.25rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.046875em;
+  color: #fff;
+}
+
+.marklab-final-cta__title-br {
+  display: block;
+}
+
+.marklab-final-cta__em {
+  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.marklab-final-cta__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.875rem;
+}
+
+@media (min-width: 640px) {
+  .marklab-final-cta__actions {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+}
+
+.marklab-final-cta__primary {
+  flex-shrink: 0;
+  min-height: 3.25rem;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-left: 1.375rem;
+  font-size: 0.9375rem;
+  color: #202342;
+}
+
+.marklab-final-cta__primary > span:last-child {
+  width: 2.25rem;
+  height: 2.25rem;
+}
+
+.marklab-final-cta__secondary {
+  display: inline-flex;
+  min-height: 3rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 0.5rem 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #fff;
+  transition: color 0.15s ease;
+}
+
+.marklab-final-cta__secondary:hover {
+  color: rgb(255 255 255 / 0.9);
+}
+
+.marklab-final-cta__secondary-icon {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+}
+
+.marklab-nav-pill {
+  background-color: rgb(32, 35, 66);
+  box-shadow: none;
+}
+
+/* Footer — Marklab `.footer-wrapper.v1` */
+.marklab-footer {
+  background: #fff;
+  padding-bottom: 2.5rem;
+}
+
+.marklab-footer__container {
+  width: 100%;
+  max-width: 76rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
+  padding-top: 3.125rem;
+}
+
+.marklab-footer__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .marklab-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .marklab-footer__newsletter {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .marklab-footer__grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr) minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 2.5rem 1.5rem;
+  }
+
+  .marklab-footer__newsletter {
+    grid-column: auto;
+  }
+}
+
+.marklab-footer__contact {
+  margin-top: 2rem;
+}
+
+.marklab-footer__meta-label {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #4e516a;
+}
+
+.marklab-footer__meta-label--gap {
+  margin-top: 1.5rem;
+}
+
+.marklab-footer__meta-value {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #202342;
+}
+
+.marklab-footer__meta-link {
+  display: inline-block;
+  transition: color 0.15s ease;
+}
+
+.marklab-footer__meta-link:hover {
+  color: #4555fd;
+}
+
+.marklab-footer__nav-title {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.4;
+  color: #4555fd;
+}
+
+.marklab-footer__links {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.marklab-footer__link {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #202342;
+  transition: color 0.15s ease;
+}
+
+.marklab-footer__link:hover {
+  color: #4555fd;
+}
+
+.marklab-footer__newsletter-title {
+  font-family: var(--font-sans);
+  font-size: 1.375rem;
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #202342;
+}
+
+.marklab-footer__newsletter-lead {
+  margin-top: 0.625rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #4e516a;
+}
+
+.marklab-footer__form {
+  margin-top: 1.25rem;
+}
+
+.marklab-footer__field {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2.75rem;
+  padding: 0.25rem 0.25rem 0.25rem 1.25rem;
+  border-radius: 9999px;
+  background: #edf2ff;
+}
+
+.marklab-footer__input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  background: transparent;
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  color: #202342;
+  outline: none;
+}
+
+.marklab-footer__input::placeholder {
+  color: #6b7280;
+}
+
+.marklab-footer__submit {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 9999px;
+  background: #4555fd;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.marklab-footer__submit:hover {
+  background: #3d4be0;
+}
+
+.marklab-footer__copy {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(32 35 66 / 0.08);
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #4e516a;
+}
+
+/* FAQ — Marklab `.faq-v1-tabs` accordion (~680px column) */
+.marklab-faq {
+  background: #fff;
+}
+
+.marklab-faq__container {
+  width: 100%;
+  max-width: 88.125rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.25rem, 4vw, 3rem);
+  padding-right: clamp(1.25rem, 4vw, 3rem);
+}
+
+.marklab-faq__title {
+  max-width: 42.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  font-family: var(--font-sans);
+  font-size: clamp(1.875rem, 4.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.046875em;
+  color: #202342;
+}
+
+.marklab-faq__list {
+  width: 100%;
+  max-width: 42.5rem;
+  margin: 2.5rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.marklab-faq__item {
+  border-radius: 1rem;
+  background: #edf2ff;
+  overflow: hidden;
+}
+
+.marklab-faq__trigger {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.5rem 1.25rem 1.5rem 1.875rem;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+.marklab-faq__question {
+  flex: 1;
+  font-size: 1.125rem;
+  font-weight: 500;
+  line-height: 1.35;
+  color: #202342;
+}
+
+.marklab-faq__icon {
+  position: relative;
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.15rem;
+}
+
+.marklab-faq__icon-h,
+.marklab-faq__icon-v {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.875rem;
+  height: 2px;
+  margin-left: -0.4375rem;
+  margin-top: -1px;
+  border-radius: 1px;
+  background: #202342;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.marklab-faq__icon-v {
+  transform: rotate(90deg);
+}
+
+.marklab-faq__item--open .marklab-faq__icon-v {
+  opacity: 0;
+}
+
+.marklab-faq__panel {
+  padding: 0 1.875rem 1.5rem 1.875rem;
+}
+
+.marklab-faq__panel[hidden] {
+  display: none;
+}
+
+.marklab-faq__answer {
+  margin: 0;
+  max-width: 36rem;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #4e516a;
+}
+
+/* Process — Marklab `.how-works-wrapper` */
+.marklab-process {
+  background: #fff;
+}
+
+/* Process container — slightly inset from full Marklab 1410px for more side breathing room */
+.marklab-process__container {
+  width: 100%;
+  max-width: 76rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
+}
+
+.marklab-process__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2rem;
+  align-items: stretch;
+}
+
+@media (min-width: 992px) {
+  .marklab-process__grid {
+    /* ~725px + ~605px — left visual slightly wider than copy column */
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 3.125rem;
+  }
+}
+
+.marklab-process__content {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.marklab-process__visual {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 20rem;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  background: linear-gradient(353deg, #edf2ff 5%, #9fb6ff 85%);
+}
+
+@media (min-width: 992px) {
+  .marklab-process__visual {
+    min-height: 100%;
+  }
+}
+
+.marklab-process__flash {
+  width: min(78%, 22rem);
+  height: auto;
+  object-fit: contain;
+}
+
+.marklab-process__badge {
+  position: absolute;
+  bottom: 1.25rem;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  max-width: calc(100% - 2rem);
+  translate: -50% 0;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  border-radius: 9999px;
+  background: rgb(255 255 255 / 0.92);
+  padding: 0.625rem 1.125rem;
+  box-shadow: 0 12px 40px rgb(32 35 66 / 0.08);
+  font-size: 0.9375rem;
+  line-height: 1.3;
+  color: #202342;
+  white-space: nowrap;
+}
+
+.marklab-process__badge-score {
+  font-weight: 600;
+}
+
+.marklab-process__badge-em {
+  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.marklab-process__title {
+  max-width: none;
+  font-family: var(--font-sans);
+  font-size: clamp(1.875rem, 4.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.046875em;
+  color: #202342;
+  text-wrap: balance;
+}
+
+.marklab-process__title-em {
+  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.marklab-process__tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 1.5rem;
+}
+
+.marklab-process__tab {
+  width: 100%;
+  border-radius: 1.25rem;
+  border: 1px solid rgb(255 255 255 / 0.15);
+  background: #f5f5f5;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.marklab-process__tab:hover {
+  border-color: rgb(32 35 66 / 0.1);
+}
+
+.marklab-process__tab-head {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.marklab-process__tab-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  flex-shrink: 0;
+}
+
+.marklab-process__tab-title {
+  display: block;
+  padding-top: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: #202342;
+}
+
+.marklab-process__tab-body {
+  display: block;
+  margin-top: 0.875rem;
+  padding-left: 0;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.55;
+  color: #4e516a;
+}
+
+@media (min-width: 640px) {
+  .marklab-process__tab-body {
+    padding-left: 3.125rem;
+  }
+}
+
+.marklab-process__cta {
+  align-self: flex-start;
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 992px) {
+  .marklab-process {
+    padding-top: 4.0625rem;
+    padding-bottom: 4.0625rem;
+  }
+}
+
+.marklab-section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 640px) {
+  .marklab-section {
+    padding-top: 4.0625rem;
+    padding-bottom: 4.0625rem;
+  }
+}
+
+.marklab-heading-lg {
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  color: rgb(32, 35, 66);
+}
+
+.marklab-heading-xl {
+  font-size: clamp(2rem, 5vw, 3.375rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+  color: rgb(32, 35, 66);
+}
+
+.marklab-card {
+  border-radius: 1rem;
+  border: 1px solid rgb(235, 236, 240);
+  background: #fff;
+}
+
+/* Smart Service — full-width grid, spacious cards */
+.marklab-service-section {
+  background: #fff;
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 1024px) {
+  .marklab-service-section {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.marklab-service-section__container {
+  width: 100%;
+  max-width: 76rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
+}
+
+.marklab-smart-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .marklab-smart-banner {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+.marklab-smart-banner__cta {
+  flex-shrink: 0;
+}
+
+.marklab-smart-title {
+  max-width: 20rem;
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: #202342;
+}
+
+@media (min-width: 1024px) {
+  .marklab-smart-title {
+    max-width: 28rem;
+  }
+}
+
+.marklab-smart-title__itlic {
+  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.marklab-service-wrapper {
+  display: grid;
+  width: 100%;
+  margin-top: 2.75rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.marklab-service-row--follow .marklab-service-wrapper {
+  margin-top: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .marklab-service-wrapper {
+    margin-top: 3.25rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(1.25rem, 2vw, 2rem);
+  }
+
+  .marklab-service-row--follow .marklab-service-wrapper {
+    margin-top: 1.5rem;
+  }
+}
+
+.marklab-single-service {
+  display: flex;
+  min-height: 21rem;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: 1rem;
+  background: #edf2ff;
+  padding: clamp(1.75rem, 2.5vw, 2.5rem);
+}
+
+@media (min-width: 768px) {
+  .marklab-single-service {
+    min-height: 23rem;
+  }
+}
+
+.marklab-single-service--plain {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgb(235 236 240);
+}
+
+.marklab-service-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.marklab-service-title-link {
+  width: 100%;
+}
+
+.marklab-service-inner__icon {
+  width: 5.5rem;
+  height: 5.5rem;
+  object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+  .marklab-service-inner__icon {
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+}
+
+.marklab-service-title {
+  margin: 1.75rem 0 0;
+  font-family: var(--font-sans);
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  font-weight: 600;
+  font-style: normal;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: #202342;
+  text-align: center;
+  text-wrap: balance;
+}
+
+@media (min-width: 1024px) {
+  .marklab-service-title {
+    margin-top: 2rem;
+  }
+}
+
+.marklab-service-details {
+  margin: 1rem auto 0;
+  flex: 1;
+  max-width: 22rem;
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #4e516a;
+  text-align: center;
+  text-wrap: pretty;
+}
+
+.marklab-smart-rating {
+  margin: 3.5rem 0 0;
+  text-align: center;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #202342;
+}
+
+.marklab-card-dark {
+  border-radius: 1.25rem;
+  background: rgb(32, 35, 66);
+  color: #fff;
+}
+
+/* Intro twin cards — Marklab `.choose-wrapper` (~924px + 440px @ 1440) */
+.marklab-intro-section {
+  background: linear-gradient(180deg, #fff 0%, #eef1f8 45%, #fff 100%);
+  padding-top: 1.5rem;
+  padding-bottom: 2.5rem;
+}
+
+@media (min-width: 1024px) {
+  .marklab-intro-section {
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+  }
+}
+
+.marklab-intro-section__container {
+  width: 100%;
+  max-width: 76rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
+}
+
+.marklab-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .marklab-intro-grid {
+    grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+  }
+}
+
+.marklab-intro-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .marklab-intro-card {
+    min-height: 26rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .marklab-intro-card {
+    min-height: 32rem;
+  }
+}
+
+.marklab-intro-card--cta {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(40deg, #fff 19%, #c2d4ff 94%);
+  padding: clamp(1.75rem, 3vw, 3.125rem) clamp(1.5rem, 3vw, 3.5rem) clamp(2rem, 4vw, 5.625rem);
+}
+
+.marklab-intro-card--about {
+  display: flex;
+  flex-direction: column;
+  background: #edf2ff;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.marklab-intro-cta-main {
+  display: flex;
+  flex-direction: column;
+}
+
+.marklab-intro-growth-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-shrink: 0;
+}
+
+.marklab-intro-growth-widget {
+  border-radius: 1rem;
+  border: 1px solid rgb(255 255 255 / 0.7);
+  background: rgb(255 255 255 / 0.9);
+  padding: 1.125rem 1.375rem 1.25rem;
+  box-shadow: 0 12px 40px rgb(32 35 66 / 0.08);
+}
+
+.marklab-intro-growth-label {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.marklab-intro-growth-value {
+  margin-top: 0.25rem;
+  font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: #4555fd;
+}
+
+.marklab-intro-growth-bar {
+  margin-top: 0.875rem;
+  height: 0.375rem;
+  width: min(100%, 10rem);
+  overflow: hidden;
+  border-radius: 9999px;
+  background: #eef0ff;
+}
+
+.marklab-intro-growth-bar__fill {
+  height: 100%;
+  width: 99%;
+  border-radius: 9999px;
+  background: #4555fd;
+}
+
+.marklab-intro-growth-icon {
+  width: 4.75rem;
+  height: 4.75rem;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+@media (min-width: 1024px) {
+  .marklab-intro-growth-icon {
+    width: 5.25rem;
+    height: 5.25rem;
+  }
+}
+
+.marklab-intro-cta-title {
+  margin-top: 0;
+  max-width: 26rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1.75rem, 2.8vw, 2.75rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.042em;
+  color: #4555fd;
+}
+
+@media (min-width: 1280px) {
+  .marklab-intro-cta-title {
+    max-width: 32rem;
+  }
+}
+
+.marklab-intro-accent {
+  color: #4555fd;
+}
+
+.marklab-intro-em {
+  font-family: var(--font-instrument-serif), ui-serif, Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  color: #202342;
+}
+
+.marklab-intro-cta-lead {
+  margin-top: 1.25rem;
+  max-width: 28rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.625;
+  color: #4e516a;
+}
+
+.marklab-intro-cta-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+  .marklab-intro-cta-actions {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+  }
+}
+
+.marklab-intro-book-call {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #202342;
+  transition: color 0.15s ease;
+}
+
+.marklab-intro-book-call:hover {
+  color: #4555fd;
+}
+
+.marklab-intro-rings {
+  pointer-events: none;
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  opacity: 0.22;
+}
+
+.marklab-intro-eyebrow {
+  position: relative;
+  z-index: 1;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #4e516a;
+}
+
+.marklab-intro-about-title {
+  position: relative;
+  z-index: 1;
+  margin-top: 0.75rem;
+  max-width: 20rem;
+  font-family: var(--font-sans);
+  font-size: clamp(1.625rem, 2.4vw, 2.25rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.042em;
+  color: #202342;
+}
+
+@media (min-width: 1024px) {
+  .marklab-intro-about-title {
+    max-width: 22rem;
+  }
+}
+
+.marklab-intro-about-body {
+  position: relative;
+  z-index: 1;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #4e516a;
+}
+
+.marquee-track {
+  animation: marquee 35s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Testimonials: one card per company — pan without duplicating logos */
+.marklab-testimonial-track {
+  animation: marklab-testimonial-pan 55s ease-in-out infinite alternate;
+}
+
+@keyframes marklab-testimonial-pan {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% + 100vw - 2rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .marquee-track,
+  .marklab-testimonial-track {
+    animation: none;
+  }
+}

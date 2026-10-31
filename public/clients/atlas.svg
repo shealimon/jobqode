@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="32" viewBox="0 0 128 32" fill="none">
+  <rect x="4" y="8" width="20" height="16" rx="4" fill="#202342"/>
+  <path d="M10 20l4-8 4 8h-2.2l-.8-1.6H13l-.8 1.6H10zm2.8-3.4h2.4l-1.2-2.4-1.2 2.4z" fill="#fff"/>
+  <text x="32" y="21" fill="#202342" font-family="system-ui,sans-serif" font-size="14" font-weight="600" letter-spacing="-0.02em">Atlas CRM</text>
+</svg>
